@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8fc6c24a44f704f81f8855c2bdd729, type: 3}
+  m_Name: Gatling Barrel
+  m_EditorClassIdentifier: 
+  moduleName: Gatling Barrel
+  moduleType: 1
+  infusionType: 17
+  addAccuracy: -6
+  multAccuracy: 0.6
+  addRecoil: 8
+  multRecoil: 1.2
+  addDamage: 3
+  multDamage: 1.2
+  addFireRate: 10
+  multFireRate: 1.5
+  addClipSize: 30
+  multClipSize: 1.5
+  addAmmoCarry: 60
+  multAmmoCarry: 1.2
+  barrelType: 1

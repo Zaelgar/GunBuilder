@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac39529ac5f8c524b9f989c082d21672, type: 3}
+  m_Name: Shoulder Mount
+  m_EditorClassIdentifier: 
+  moduleName: Shoulder Mounted Frame
+  moduleType: 0
+  infusionType: 17
+  addAccuracy: 0
+  multAccuracy: 1
+  addRecoil: 0
+  multRecoil: 1
+  addDamage: 10
+  multDamage: 5
+  addFireRate: -10
+  multFireRate: 0.8
+  addClipSize: -10
+  multClipSize: 0.5
+  addAmmoCarry: -10
+  multAmmoCarry: 0.5
+  frameType: 2
