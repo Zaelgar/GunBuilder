@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public abstract class Module : ScriptableObject
@@ -44,4 +45,14 @@ public abstract class Module : ScriptableObject
 
     public abstract void Awake();
     public abstract uint ApplyModule();
+
+    public void MultiplyValues(float value)
+    {
+        multAccuracy *= value;
+        multRecoil *= value;
+        multDamage *= value;
+        multFireRate *= value;
+        multClipSize *= value;
+        multAmmoCarry *= value;
+    }
 }

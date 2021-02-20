@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /*
 
@@ -27,16 +28,31 @@ public class Weapon : MonoBehaviour
     public List<Module> modules;
     public GameObject projectile;
 
+    public Frame weaponFrame;
+    public Barrel weaponBarrel;
+    public Clip weaponClip;
+    public Trigger weaponTrigger;
+
+    private void Awake()
+    {
+        ServiceLocator.Register<Weapon>(this);
+    }
+
     private void Start()
+    {
+        WeaponSlot.OnSlotChange += OnSlotChange;
+
+        SortModules();
+        weaponFrame = modules[0] as Frame;
+        weaponBarrel = modules[1] as Barrel;
+        weaponClip = modules[2] as Clip;
+        weaponTrigger = modules[3] as Trigger;
+    }
+
+    public void OnSlotChange()
     {
         DeduceProjectileType();
     }
-
-    private void SortModules()
-    {
-        modules.Sort((mod1, mod2) => mod1.moduleType.CompareTo(mod2.moduleType));
-    }
-
     private void DeduceProjectileType()
     {
         SortModules();
@@ -90,5 +106,18 @@ public class Weapon : MonoBehaviour
                 Debug.LogWarning("No Suitable Deduction Found!");
                 break;
         }
+    }
+
+
+    private void SortModules()
+    {
+        modules.Sort((mod1, mod2) => mod1.moduleType.CompareTo(mod2.moduleType));
+    }
+
+    public void SetBarrel(Barrel b)
+    {
+        weaponBarrel = b;
+        modules[1] = b;
+        DeduceProjectileType();
     }
 }
