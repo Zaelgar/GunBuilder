@@ -17,21 +17,32 @@ Weapon Attributes:
 
 public class Weapon : MonoBehaviour
 {
-    // Fire barrel, magnet ammo
+    #region Projectile Types
     public uint flameBounce = (0x1 << 1) << (0x1 << 2);
     public uint novaShot = (0x1 << 2) << (0x1 << 1);
     public uint laser = (0x1 << 1) << (0x1 << 4);
     public uint timedExplodingShots = (0x1 << 4) << (0x1 << 1);
     public uint slowingBullets = (0x1 << 2) << (0x1 << 4);
     public uint railgun = (0x1 << 4) << (0x1 << 2);
+    #endregion
 
-    public List<Module> modules;
     public GameObject projectile;
 
+    #region Weapon References
     public Frame weaponFrame;
+    public GameObject frameInstance;
+
+    private FrameInfo frameInfo;
+
     public Barrel weaponBarrel;
+    public GameObject barrelInstance;
+
     public Clip weaponClip;
+    public GameObject clipInstance;
+
     public Trigger weaponTrigger;
+    public GameObject triggerInstance;
+    #endregion
 
     private void Awake()
     {
@@ -40,39 +51,25 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        WeaponSlot.OnSlotChange += OnSlotChange;
-
-        SortModules();
-        weaponFrame = modules[0] as Frame;
-        weaponBarrel = modules[1] as Barrel;
-        weaponClip = modules[2] as Clip;
-        weaponTrigger = modules[3] as Trigger;
+        // Instantiate all weapon pieces.
+        frameInstance = Instantiate(weaponFrame.frame, transform);
+        frameInfo = weaponFrame.GetFrameInfo();
+        barrelInstance = Instantiate(weaponBarrel.barrel, frameInfo.GetBarrelAttachmentTransform().position + frameInstance.transform.position, transform.rotation, frameInstance.transform);
+        clipInstance = Instantiate(weaponClip.clip, frameInfo.GetClipAttachmentTransform().position + transform.position, transform.rotation, frameInstance.transform);
+        triggerInstance = Instantiate(weaponTrigger.trigger, frameInfo.GetTriggerAttachmentTransform().position + transform.position, transform.rotation, frameInstance.transform);
     }
 
     public void OnSlotChange()
     {
         DeduceProjectileType();
     }
+
     private void DeduceProjectileType()
     {
-        SortModules();
+        // Weapons are currently only affected by barrel type, and then by clip type.
+        uint fireType = (uint)weaponBarrel.infusionType;
 
-        bool isFirst = false;
-        uint fireType = 0;
-
-        foreach(Module mod in modules)
-        {
-            if(mod.infusionType != Module.InfusionType.NONE)
-            { 
-                if (!isFirst)
-                {
-                    fireType = mod.ApplyModule();
-                    isFirst = true;
-                    continue;
-                }
-                fireType <<= (int)mod.ApplyModule();
-            }
-        }
+        fireType <<= (int)weaponClip.ApplyModule();
 
         Debug.Log(fireType);
 
@@ -108,16 +105,58 @@ public class Weapon : MonoBehaviour
         }
     }
 
-
-    private void SortModules()
+    #region Set Module Public Functions
+    public void SetFrame(Frame f)
     {
-        modules.Sort((mod1, mod2) => mod1.moduleType.CompareTo(mod2.moduleType));
+        weaponFrame = f;
+        // TODO
+        //DeduceProjectileType(); - Not needed for now
+        Instantiate(weaponFrame, transform);
+        frameInfo = weaponFrame.frame.GetComponent<FrameInfo>();
+        if(frameInfo == null)
+        {
+            Debug.LogError("No Frame info for this frame!");
+        }
     }
 
     public void SetBarrel(Barrel b)
     {
         weaponBarrel = b;
-        modules[1] = b;
         DeduceProjectileType();
+    }
+
+    public void SetClip(Clip c)
+    {
+        weaponClip = c;
+        DeduceProjectileType();
+    }
+
+    public void SetTrigger(Trigger t)
+    {
+        weaponTrigger = t;
+        // TODO
+        //DeduceProjectileType(); - Not needed for now
+    }
+    #endregion
+
+    // This function serves to reposition other modules once a different weapon frame is used.
+    private void RepositionModules()
+    {
+        // TODO
+    }
+
+    public Transform GetClipTransform()
+    {
+        return frameInfo.GetClipAttachmentTransform();
+    }
+
+    public Transform GetTriggerTransorm()
+    {
+        return frameInfo.GetTriggerAttachmentTransform();
+    }
+
+    public Transform GetBarrelTransform()
+    {
+        return frameInfo.GetBarrelAttachmentTransform();
     }
 }

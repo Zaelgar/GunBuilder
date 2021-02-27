@@ -4,6 +4,8 @@ using System.Collections;
 [CreateAssetMenu(menuName = "Weapon Modules/New Clip")]
 public class Clip : Module
 {
+    // TODO: Eliminate hard references inside of object (use the Weapon archetypes for objects)
+    public GameObject clip;
     public enum ClipType
     {
         Magazine,

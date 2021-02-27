@@ -4,6 +4,10 @@ using System.Collections;
 [CreateAssetMenu (menuName = "Weapon Modules/New Frame")]
 public class Frame : Module
 {
+    // TODO: Eliminate hard references inside of object (use the Weapon archetypes for objects)
+    public GameObject frame;
+    public FrameInfo frameInfo;
+
     public enum FrameType
     {
         OneHanded,
@@ -23,5 +27,16 @@ public class Frame : Module
     public override uint ApplyModule()
     {
         return (uint)infusionType;
+    }
+
+    public FrameInfo GetFrameInfo()
+    {
+        if (frameInfo == null)
+        {
+            frameInfo = frame.GetComponent<FrameInfo>();
+            return frameInfo;
+        }
+        else
+            return frameInfo;
     }
 }

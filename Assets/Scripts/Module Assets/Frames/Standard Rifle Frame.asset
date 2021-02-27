@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac39529ac5f8c524b9f989c082d21672, type: 3}
   m_Name: Standard Rifle Frame
   m_EditorClassIdentifier: 
-  moduleName: Standard Rifle Frame
+  moduleName: NEW_FRAME
   moduleType: 0
   infusionType: 17
   addAccuracy: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
   multClipSize: 1
   addAmmoCarry: 0
   multAmmoCarry: 1
+  frame: {fileID: 2108857539765305545, guid: 86b20f53787227943a5a1fa957b62506, type: 3}
   frameType: 1

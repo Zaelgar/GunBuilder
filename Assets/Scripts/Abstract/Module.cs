@@ -21,6 +21,8 @@ public abstract class Module : ScriptableObject
         NONE,
     }
 
+    #region Variables
+
     public string moduleName = "New Module";
     public ModuleType moduleType = ModuleType.NONE;
     public InfusionType infusionType = InfusionType.NONE;
@@ -42,6 +44,8 @@ public abstract class Module : ScriptableObject
 
     public int addAmmoCarry = 0;
     public float multAmmoCarry = 1.0f;
+
+    #endregion
 
     public abstract void Awake();
     public abstract uint ApplyModule();

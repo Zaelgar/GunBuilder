@@ -5,6 +5,9 @@ using System.Collections;
 [CreateAssetMenu(menuName = "Weapon Modules/New Barrel")]
 public class Barrel : Module
 {
+    // TODO: Eliminate hard references inside of object (use the Weapon archetypes for objects)
+    public GameObject barrel;
+
     public enum BarrelType
     {
         Carbine,

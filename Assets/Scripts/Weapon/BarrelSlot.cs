@@ -6,42 +6,19 @@ using System;
 [System.Serializable]
 public class BarrelSlot : WeaponSlot
 {
-    //public Material defaultMat;
-    //public Material fireMat;
-    //public Material magnetMat;
-    //public Material electricMat;
-
-    QOLStorage qStore;
-    Weapon weaponRef;
+    // TODO - add functionality to use existing Barrel to drive settings data
 
     public Barrel barrel;
     public string barrelName = "NO_NAME_BARREL";
-    public Module.InfusionType infusionType = Module.InfusionType.Fire;
     public Barrel.BarrelType barrelType = Barrel.BarrelType.Carbine;
-    [Range(0.5f, 2.5f)]
+    [Range(0.5f, 1.5f)]
     public float barrelScale = 1.0f;
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 0.5f)]
     public float barrelLength = 0f;
-
-    // This was helping me in editor. It will be removed.
-    public Vector3 defaultLocalScale = new Vector3(0.12f, 0.6f, 0.12f);
 
     private void Start()
     {
-        qStore = ServiceLocator.Get<QOLStorage>();
-        if(qStore == null)
-        {
-            Debug.LogError("QOLStorage not found. Did you remember to register it with the ServiceLocator?");
-        }
-
-        defaultLocalScale = transform.localScale;
-        moduleAssetPath = "Assets/Scripts/Module Assets/Barrels/";
-
-        weaponRef = ServiceLocator.Get<Weapon>();
-        if(weaponRef == null)
-        {
-            Debug.LogError("Fatal Error! Weapon reference not found!");
-        }
+        moduleAssetPath += "Barrels/";
     }
 
     public void Change()
@@ -68,35 +45,26 @@ public class BarrelSlot : WeaponSlot
 
     private void OnValidate()
     {
-        // TODO - add functionality to use existing Barrel to drive settings data
-
         // Only works in Play Mode!!
         switch (infusionType)
         {
             case Module.InfusionType.Fire:
-                //GetComponent<MeshRenderer>().material = qStore.infusionMaterials[(int)infusionType];
-                GetComponent<MeshRenderer>().material = qStore.infusionMaterials[0];
-                //GetComponent<MeshRenderer>().material = fireMat;
-                break;
-
-            case Module.InfusionType.Magnet:
-                //GetComponent<MeshRenderer>().material = qStore.infusionMaterials[(int)infusionType];
-                GetComponent<MeshRenderer>().material = qStore.infusionMaterials[1];
-                //GetComponent<MeshRenderer>().material = magnetMat;
+                GetComponent<MeshRenderer>().material = weaponArchetypes.infusionMaterials[0];
                 break;
 
             case Module.InfusionType.Electric:
-                //GetComponent<MeshRenderer>().material = qStore.infusionMaterials[(int)infusionType];
-                GetComponent<MeshRenderer>().material = qStore.infusionMaterials[2];
-                //GetComponent<MeshRenderer>().material = electricMat;
+                GetComponent<MeshRenderer>().material = weaponArchetypes.infusionMaterials[1];
+                break;
+
+            case Module.InfusionType.Magnet:
+                GetComponent<MeshRenderer>().material = weaponArchetypes.infusionMaterials[2];
                 break;
 
             case Module.InfusionType.NONE:
-                //GetComponent<MeshRenderer>().material = defaultMat;
                 break;
         }
 
-        Vector3 moduleScaling = defaultLocalScale * barrelScale;
+        Vector3 moduleScaling = Vector3.one * barrelScale;
         moduleScaling.y += barrelLength;
 
         transform.localScale = moduleScaling;

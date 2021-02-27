@@ -9,23 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b708546b983f5143959afac4a2e8340, type: 3}
-  m_Name: Semi-Auto Trigger
+  m_Script: {fileID: 11500000, guid: 9f8fc6c24a44f704f81f8855c2bdd729, type: 3}
+  m_Name: FireBarrelTest
   m_EditorClassIdentifier: 
-  moduleName: NEW_TRIGGER
-  moduleType: 3
-  infusionType: 17
+  moduleName: FireBarrelTest
+  moduleType: 1
+  infusionType: 2
   addAccuracy: 0
-  multAccuracy: 1
+  multAccuracy: 1.04
   addRecoil: 0
-  multRecoil: 1
+  multRecoil: 1.04
   addDamage: 0
-  multDamage: 1
+  multDamage: 1.04
   addFireRate: 0
-  multFireRate: 1
+  multFireRate: 1.04
   addClipSize: 0
-  multClipSize: 1
+  multClipSize: 1.04
   addAmmoCarry: 0
-  multAmmoCarry: 1
-  trigger: {fileID: 73006751506668125, guid: abed03ca069a7c64681f0410a7db2cc7, type: 3}
-  triggerType: 0
+  multAmmoCarry: 1.04
+  barrelType: 0
+  barrelLength: 1.04
+  barrelScale: 0.77

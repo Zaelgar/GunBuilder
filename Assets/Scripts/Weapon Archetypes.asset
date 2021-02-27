@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdcf5162a5f31cc47a33ce7848f5ceb7, type: 3}
-  m_Name: QOL Storage
+  m_Name: Weapon Archetypes
   m_EditorClassIdentifier: 
   infusionMaterials:
   - {fileID: 2100000, guid: 4dcd8a164d188564fa1fbebee7d4bc17, type: 2}
-  - {fileID: 2100000, guid: c06512bac404d7c4d9494b60d6c16361, type: 2}
   - {fileID: 2100000, guid: 300e9830004303e43bc55bbf357cb6f7, type: 2}
+  - {fileID: 2100000, guid: c06512bac404d7c4d9494b60d6c16361, type: 2}
+  framesList:
+  - {fileID: 2108857539765305545, guid: 86b20f53787227943a5a1fa957b62506, type: 3}
+  barrelsList: []
+  clipsList: []
+  triggersList: []
+  moduleAssetPath: Assets/Scripts/Module Assets/

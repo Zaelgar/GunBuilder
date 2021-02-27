@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88939ed321e4f2748a937f9b6e448794, type: 3}
   m_Name: Drum Clip
   m_EditorClassIdentifier: 
-  moduleName: Drum Magazine
+  moduleName: NEW_CLIP
   moduleType: 2
   infusionType: 4
   addAccuracy: -3
@@ -27,4 +27,5 @@ MonoBehaviour:
   multClipSize: 1.2
   addAmmoCarry: 20
   multAmmoCarry: 2
+  clip: {fileID: 3804504771892436361, guid: a305bf6ba5ac9c04f8944c4359345424, type: 3}
   clipType: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88939ed321e4f2748a937f9b6e448794, type: 3}
   m_Name: Magazine Clip
   m_EditorClassIdentifier: 
-  moduleName: Magazine Clip
+  moduleName: NEW_CLIP
   moduleType: 2
   infusionType: 17
   addAccuracy: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
   multClipSize: 1
   addAmmoCarry: 0
   multAmmoCarry: 1
+  clip: {fileID: 6133826773352083793, guid: 1f62cabccf5c3884aa938c8370d00f59, type: 3}
   clipType: 0
