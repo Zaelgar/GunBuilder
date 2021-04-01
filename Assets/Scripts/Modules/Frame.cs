@@ -5,13 +5,13 @@ using System.Collections;
 public class Frame : Module
 {
     // TODO: Eliminate hard references inside of object (use the Weapon archetypes for objects)
-    public GameObject frame;
+    public GameObject frameObject;
     public FrameInfo frameInfo;
 
     public enum FrameType
     {
-        OneHanded,
-        TwoHanded,
+        Rifle,
+        Pistol,
         ShoulderMount,
         NONE,
     }
@@ -33,7 +33,7 @@ public class Frame : Module
     {
         if (frameInfo == null)
         {
-            frameInfo = frame.GetComponent<FrameInfo>();
+            frameInfo = frameObject.GetComponent<FrameInfo>();
             return frameInfo;
         }
         else

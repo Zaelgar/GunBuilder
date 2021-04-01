@@ -28,4 +28,6 @@ MonoBehaviour:
   addAmmoCarry: 0
   multAmmoCarry: 1
   frame: {fileID: 2108857539765305545, guid: 86b20f53787227943a5a1fa957b62506, type: 3}
-  frameType: 1
+  frameInfo: {fileID: 5899860111666538441, guid: 86b20f53787227943a5a1fa957b62506,
+    type: 3}
+  frameType: 0

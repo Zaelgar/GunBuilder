@@ -6,7 +6,7 @@ using System.Collections;
 public class Barrel : Module
 {
     // TODO: Eliminate hard references inside of object (use the Weapon archetypes for objects)
-    public GameObject barrel;
+    public GameObject barrelObject;
 
     public enum BarrelType
     {

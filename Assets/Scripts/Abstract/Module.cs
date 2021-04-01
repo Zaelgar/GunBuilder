@@ -15,10 +15,10 @@ public abstract class Module : ScriptableObject
 
     public enum InfusionType
     {
-        Fire = 0x1 << 1,
-        Magnet = 0x1 << 2,
-        Electric = 0x1 << 4,
-        NONE,
+        Electric = 0x1 << 1,
+        Fire = 0x1 << 2,
+        Magnet = 0x1 << 4,
+        NONE = -1,
     }
 
     #region Variables

@@ -27,4 +27,8 @@ MonoBehaviour:
   multClipSize: 1.5
   addAmmoCarry: 60
   multAmmoCarry: 1.2
+  barrelObject: {fileID: 7955403435451260655, guid: 62b6a53321eee1445afcb8f5f492a186,
+    type: 3}
   barrelType: 1
+  barrelLength: 1
+  barrelScale: 1

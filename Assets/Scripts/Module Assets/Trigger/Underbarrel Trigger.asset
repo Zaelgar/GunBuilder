@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b708546b983f5143959afac4a2e8340, type: 3}
   m_Name: Underbarrel Trigger
   m_EditorClassIdentifier: 
-  moduleName: Underbarrel Trigger
+  moduleName: NEW_TRIGGER
   moduleType: 3
   infusionType: 17
   addAccuracy: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
   multClipSize: 1
   addAmmoCarry: 0
   multAmmoCarry: 1
+  trigger: {fileID: 1132223610486556211, guid: 28d01559b62b81f4bbfec704fd8330f4, type: 3}
   triggerType: 2

@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: Weapon Archetypes
   m_EditorClassIdentifier: 
   infusionMaterials:
-  - {fileID: 2100000, guid: 4dcd8a164d188564fa1fbebee7d4bc17, type: 2}
   - {fileID: 2100000, guid: 300e9830004303e43bc55bbf357cb6f7, type: 2}
+  - {fileID: 2100000, guid: 4dcd8a164d188564fa1fbebee7d4bc17, type: 2}
   - {fileID: 2100000, guid: c06512bac404d7c4d9494b60d6c16361, type: 2}
   framesList:
   - {fileID: 2108857539765305545, guid: 86b20f53787227943a5a1fa957b62506, type: 3}
-  barrelsList: []
-  clipsList: []
-  triggersList: []
+  barrelsList:
+  - {fileID: 4253404425786331626, guid: 70f1892bea522d745985c3aa3c15dad2, type: 3}
+  - {fileID: 7955403435451260655, guid: 62b6a53321eee1445afcb8f5f492a186, type: 3}
+  clipsList:
+  - {fileID: 3804504771892436361, guid: a305bf6ba5ac9c04f8944c4359345424, type: 3}
+  - {fileID: 6133826773352083793, guid: 1f62cabccf5c3884aa938c8370d00f59, type: 3}
+  triggersList:
+  - {fileID: 1132223610486556211, guid: 28d01559b62b81f4bbfec704fd8330f4, type: 3}
+  - {fileID: 73006751506668125, guid: abed03ca069a7c64681f0410a7db2cc7, type: 3}
   moduleAssetPath: Assets/Scripts/Module Assets/

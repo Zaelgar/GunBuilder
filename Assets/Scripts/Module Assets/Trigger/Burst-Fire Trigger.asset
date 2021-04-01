@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b708546b983f5143959afac4a2e8340, type: 3}
   m_Name: Burst-Fire Trigger
   m_EditorClassIdentifier: 
-  moduleName: Burst-Fire Trigger
+  moduleName: NEW_TRIGGER
   moduleType: 3
   infusionType: 17
   addAccuracy: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
   multClipSize: 1
   addAmmoCarry: 0
   multAmmoCarry: 1
+  trigger: {fileID: 73006751506668125, guid: abed03ca069a7c64681f0410a7db2cc7, type: 3}
   triggerType: 1
