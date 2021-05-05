@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6073180927634779467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8fc6c24a44f704f81f8855c2bdd729, type: 3}
+  m_Name: MagBarrel
+  m_EditorClassIdentifier: 
+  moduleType: 1
+  infusionType: 3
+  moduleIndex: 0
+  addAccuracy: 0
+  multAccuracy: 1
+  addRecoil: 0
+  multRecoil: 1
+  addDamage: 0
+  multDamage: 1
+  addFireRate: 0
+  multFireRate: 1
+  addClipSize: 0
+  multClipSize: 1
+  addAmmoCarry: 0
+  multAmmoCarry: 1
+  barrelObject: {fileID: 4253404425786331626, guid: 70f1892bea522d745985c3aa3c15dad2,
+    type: 3}
+  barrelLength: 1.3
+  barrelScale: 1.5
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d2b672e77bbc040a9bc125c325ca42, type: 3}
+  m_Name: UserBarrels
+  m_EditorClassIdentifier: 
+  itemCount: 2
+  type: 1
+--- !u!114 &3235105342522797603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8fc6c24a44f704f81f8855c2bdd729, type: 3}
+  m_Name: CFB
+  m_EditorClassIdentifier: 
+  moduleType: 1
+  infusionType: 2
+  moduleIndex: 0
+  addAccuracy: 0
+  multAccuracy: 1
+  addRecoil: 0
+  multRecoil: 1
+  addDamage: 0
+  multDamage: 1
+  addFireRate: 0
+  multFireRate: 1
+  addClipSize: 0
+  multClipSize: 1
+  addAmmoCarry: 0
+  multAmmoCarry: 1
+  barrelObject: {fileID: 4253404425786331626, guid: 70f1892bea522d745985c3aa3c15dad2,
+    type: 3}
+  barrelLength: 0.5
+  barrelScale: 0.7

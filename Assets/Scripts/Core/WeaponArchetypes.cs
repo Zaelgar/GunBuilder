@@ -6,15 +6,35 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon Archetypes")]
 public class WeaponArchetypes : ScriptableObject
 {
-    public List<Material> infusionMaterials;
+    public enum InfusionType
+    {
+        None,
+        Electric,
+        Fire,
+        Magnet,
+    }
+    public List<string> infusionTypes;
+
+    public List<Material> infusionMaterials = new List<Material>();
 
     // Weapon mesh pieces
     public List<GameObject> framesList;
     public List<GameObject> barrelsList;
     public List<GameObject> clipsList;
     public List<GameObject> triggersList;
+    public List<GameObject> projectilesList;
+
+    public string frameAssetPath = "Assets/Scripts/UserMadeObjects/UserFrames.asset";
+    public string barrelAssetPath = "Assets/Scripts/UserMadeObjects/UserBarrels.asset";
+    public string clipAssetPath = "Assets/Scripts/UserMadeObjects/UserClips.asset";
+    public string triggerAssetPath = "Assets/Scripts/UserMadeObjects/UserTriggers.asset";
 
     public string moduleAssetPath = "Assets/Scripts/Module Assets/";
+
+    public Material GetMaterialForInfusion(InfusionType infusionType)
+    {
+        return infusionMaterials[(int)infusionType];
+    }
 
     private void OnEnable()
     {
@@ -30,40 +50,5 @@ public class WeaponArchetypes : ScriptableObject
     private void OnDestroy()
     {
         ServiceLocator.Deregister<WeaponArchetypes>();
-    }
-
-    public int ElementToIndex(Module.InfusionType type)
-    {
-        // Not sure if we need this yet, supposed to be for UI helper
-        switch (type)
-        {
-            case Module.InfusionType.Electric:
-                return 0;
-            case Module.InfusionType.Fire:
-                return 1;
-            case Module.InfusionType.Magnet:
-                return 2;
-            case Module.InfusionType.NONE:
-                return 3;
-            default:
-                return -1;
-        }
-    }
-
-    public Module.InfusionType IndexToElement(int index)    // Weird, but keeps code in one place in case of changes.
-    {
-        // For use with UI dropdown OnDropDownChange. Value is from 0-(numElements-1).
-        // Infusion Enum is bit shifted layermask values, so we need a conversion
-        switch (index)
-        {
-            case 0:
-                return Module.InfusionType.Electric;
-            case 1:
-                return Module.InfusionType.Fire;
-            case 2:
-                return Module.InfusionType.Magnet;
-            default:
-                return Module.InfusionType.NONE;
-        }
     }
 }

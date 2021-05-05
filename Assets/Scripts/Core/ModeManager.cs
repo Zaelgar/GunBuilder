@@ -36,16 +36,11 @@ public class ModeManager : MonoBehaviour
     public void OnTestButtonPress()
     {
         workBenchActivator.enabled = true;
-
     }
 
     private void OnTriggerStay(Collider other)
     {
         workBenchActivator.enabled = true;
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            // Switch Mode
-        }
     }
 
     private void OnTriggerExit(Collider other)
