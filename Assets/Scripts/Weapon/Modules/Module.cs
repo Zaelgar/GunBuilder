@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class Module : ScriptableObject
 {
@@ -36,6 +37,8 @@ public abstract class Module : ScriptableObject
 
     public int addAmmoCarry = 0;
     public float multAmmoCarry = 1.0f;
+
+    public List<Renderer> ElementalRenderers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     #endregion
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour, IProjectileSettings, IElementalMaterial
+public class BasicBullet : MonoBehaviour, IProjectileSettings
 {
     public Vector3 LaunchDirection { get; set; }
 

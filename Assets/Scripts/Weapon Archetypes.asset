@@ -17,11 +17,16 @@ MonoBehaviour:
   - Electric
   - Fire
   - Magnetic
-  infusionMaterials:
+  infusionModuleMaterials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 300e9830004303e43bc55bbf357cb6f7, type: 2}
   - {fileID: 2100000, guid: 4dcd8a164d188564fa1fbebee7d4bc17, type: 2}
   - {fileID: 2100000, guid: c06512bac404d7c4d9494b60d6c16361, type: 2}
+  infusionParticleMaterials:
+  - {fileID: 2100000, guid: c8dcec9983aeeda4ba36a3d87db95a23, type: 2}
+  - {fileID: 2100000, guid: 993cef6df08e9db4386f8b5414a94d28, type: 2}
+  - {fileID: 2100000, guid: cddd5914b60db884198685f87308634d, type: 2}
+  - {fileID: 2100000, guid: 9a1e734535c5e4d418686a84d2f2d439, type: 2}
   framesList:
   - {fileID: 2108857539765305545, guid: 86b20f53787227943a5a1fa957b62506, type: 3}
   barrelsList:

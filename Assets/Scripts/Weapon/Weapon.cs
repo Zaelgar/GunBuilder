@@ -70,26 +70,26 @@ public class Weapon : MonoBehaviour
 
         frameInstance = Instantiate(f.frameObject, transform);
         frameInstance.transform.localScale = new Vector3(f.frameScale, f.frameScale, f.frameScale);
-        frameInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)f.infusionType];
+        frameInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)f.infusionType]);
         FrameInfo frameInfo = frameInstance.GetComponent<FrameInfo>(); // Each frame has a frame script that holds transform data for each attachment point for each module on the weapon.
         if (frameInfo == null)
             Debug.LogError("No FrameInfo script found while building weapon.");
 
         barrelInstance = Instantiate(b.barrelObject, frameInfo.barrelAttachmentTransform);
         barrelInstance.transform.localScale = new Vector3(b.barrelScale, b.barrelScale, b.barrelLength);
-        barrelInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)b.infusionType];
+        barrelInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)b.infusionType]);
         firePoint = barrelInstance.transform.GetChild(0); // Each barrel has one child which is the firing point of the barrel
         if(firePoint == null)
             Debug.LogError("No FrameInfo script found while building weapon.");
 
         clipInstance = Instantiate(c.clipObject, frameInfo.clipAttachmentTransform);
         clipInstance.transform.localScale = new Vector3(c.clipScale, c.clipScale, c.clipScale);
-        clipInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)c.infusionType];
+        clipInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)c.infusionType]);
 
         triggerInstance = Instantiate(t.triggerObject, frameInfo.triggerAttachmentTransform);
-        triggerInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)t.infusionType];
+        triggerInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)t.infusionType]);
 
-        projectileType = weaponArchetypes.projectilesList[projectileIndex]; // TODO Make this dynamic based on modules
+        projectileType = weaponArchetypes.DeduceProjectileType(f, b, c, t);
 
         if (projectileType != null)
         {

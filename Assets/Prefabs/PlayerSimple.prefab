@@ -443,3 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f4008973f161c488043f1b95f3b450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 100
+  fireRate: 10
+  damage: 1
+  accuracy: 1
+  projectileIndex: 1

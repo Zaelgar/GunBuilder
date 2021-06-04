@@ -63,7 +63,7 @@ public class FrameSlot : WeaponSlot<Frame>
             // Infusion Type
             infusionType = f.infusionType;
             newObjectInfusionDropdown.value = (int)f.infusionType;
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)f.infusionType];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)f.infusionType]);
 
             // Frame Name
             newObjectInputField.text = f.name;
@@ -79,7 +79,7 @@ public class FrameSlot : WeaponSlot<Frame>
             newFrameScaleSlider.value = 1.0f;
             slotObjectInstance.transform.localScale = Vector3.one;
 
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[0];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[0]);
 
             frameInfo = slotObjectInstance.GetComponent<FrameInfo>();
             if (!frameInfo)
@@ -107,8 +107,8 @@ public class FrameSlot : WeaponSlot<Frame>
         slotObjectInstance = Instantiate(weaponArchetypes.framesList[newObjectTypeDropdown.value]);
 
         // material infusion
-        slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)infusionType];
-        
+        slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)infusionType]);
+
         // scaling
         slotObjectInstance.transform.localScale = new Vector3(
             newFrameScaleSlider.value,

@@ -56,7 +56,8 @@ public class TriggerSlot : WeaponSlot<Trigger>
             // Infusion Type
             infusionType = t.infusionType;
             newObjectInfusionDropdown.value = (int)t.infusionType;
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)t.infusionType];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)t.infusionType]);
+
 
             // Burst Fire
             newTriggerBurstCountSlider.value = t.burstCount;
@@ -67,8 +68,7 @@ public class TriggerSlot : WeaponSlot<Trigger>
         else
         {
             slotObjectInstance = Instantiate(weaponArchetypes.triggersList[0], transform);
-
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[0];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[0]);
         }
     }
 
@@ -92,7 +92,7 @@ public class TriggerSlot : WeaponSlot<Trigger>
         slotObjectInstance = Instantiate(weaponArchetypes.triggersList[newObjectTypeDropdown.value], transform);
 
         // Correct infusion
-        slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)infusionType];
+        slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)infusionType]);
     }
 
     public void OnNewTriggerBurstCountSliderChange()

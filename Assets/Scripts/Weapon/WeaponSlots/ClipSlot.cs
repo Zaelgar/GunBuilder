@@ -60,7 +60,7 @@ public class ClipSlot : WeaponSlot<Clip>
             // Infusion
             infusionType = c.infusionType;
             newObjectInfusionDropdown.value = (int)c.infusionType;
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)c.infusionType];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)c.infusionType]);
 
             // Name
             newObjectInputField.text = c.name;
@@ -71,7 +71,7 @@ public class ClipSlot : WeaponSlot<Clip>
             newClipScaleSlider.value = 1.0f;
             slotObjectInstance.transform.localScale = Vector3.one;
 
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[0];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[0]);
         }
     }
 
@@ -95,7 +95,7 @@ public class ClipSlot : WeaponSlot<Clip>
         slotObjectInstance = Instantiate(weaponArchetypes.clipsList[newObjectTypeDropdown.value], transform);
 
         // Material
-        slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)infusionType];
+        slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)infusionType]);
 
         // Scale
         slotObjectInstance.transform.localScale = new Vector3(

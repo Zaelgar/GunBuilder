@@ -72,7 +72,8 @@ public class BarrelSlot : WeaponSlot<Barrel>
             // Infusion
             infusionType = b.infusionType;
             newObjectInfusionDropdown.value = (int)b.infusionType;
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)b.infusionType];
+
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)b.infusionType]);
 
             // Name
             newObjectInputField.text = b.name;
@@ -84,7 +85,7 @@ public class BarrelSlot : WeaponSlot<Barrel>
             newBarrelLengthSlider.value = 1.0f;
             slotObjectInstance.transform.localScale = Vector3.one; // length and scale are the same here (1.0f)
 
-            slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[0];
+            slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[0]);
         }
     }
 
@@ -108,7 +109,8 @@ public class BarrelSlot : WeaponSlot<Barrel>
 
         // Set infusion and material
         slotObjectInstance = Instantiate(weaponArchetypes.barrelsList[newObjectTypeDropdown.value], transform);
-        slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[(int)infusionType];
+        slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[(int)infusionType]);
+
 
         // Set scaling
         slotObjectInstance.transform.localScale = new Vector3(

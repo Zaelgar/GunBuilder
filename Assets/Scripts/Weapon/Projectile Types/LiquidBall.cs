@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LiquidBall : MonoBehaviour, IProjectileSettings, IElementalMaterial
+public class LiquidBall : MonoBehaviour, IProjectileSettings
 {
     WeaponArchetypes.InfusionType infusionType;
     public WeaponArchetypes.InfusionType InfusionType { get { return infusionType; } set { infusionType = value; } }
-
-    public List<Renderer> elementalRenderers = new List<Renderer>();
-    public List<Renderer> ElementalRenderers { get { return elementalRenderers; } set { elementalRenderers = value; } }
     public Vector3 LaunchDirection { get; set; }
 
     public float damage = 10f;
@@ -35,7 +32,6 @@ public class LiquidBall : MonoBehaviour, IProjectileSettings, IElementalMaterial
 
         rb.velocity = Vector3.zero;
         rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
-        ChangeElementalMaterials(infusionType);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -54,14 +50,6 @@ public class LiquidBall : MonoBehaviour, IProjectileSettings, IElementalMaterial
             {
                 objToDamage.TakeDamage(damage);
             }
-        }
-    }
-
-    public void ChangeElementalMaterials(WeaponArchetypes.InfusionType infusionType)
-    {
-        foreach (var renderer in ElementalRenderers)
-        {
-            renderer.material = weaponArchetypes.GetMaterialForInfusion(infusionType);
         }
     }
 }

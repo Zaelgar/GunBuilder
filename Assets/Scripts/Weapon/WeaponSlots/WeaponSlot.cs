@@ -133,7 +133,8 @@ public abstract class WeaponSlot<T> : MonoBehaviour
     public void OnNewObjectInfusionChange()
     {
         infusionType = (WeaponArchetypes.InfusionType)newObjectInfusionDropdown.value;
-        slotObjectInstance.GetComponent<Renderer>().material = weaponArchetypes.infusionMaterials[newObjectInfusionDropdown.value];
+
+        slotObjectInstance.GetComponent<ElementMaterial>().ChangeElementalMaterials(weaponArchetypes.infusionModuleMaterials[newObjectInfusionDropdown.value]);
     }
 
     public abstract void OnNewObjectSaveButtonPress();

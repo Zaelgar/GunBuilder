@@ -15,7 +15,8 @@ public class WeaponArchetypes : ScriptableObject
     }
     public List<string> infusionTypes;
 
-    public List<Material> infusionMaterials = new List<Material>();
+    public List<Material> infusionModuleMaterials = new List<Material>();
+    public List<Material> infusionParticleMaterials = new List<Material>();
 
     // Weapon mesh pieces
     public List<GameObject> framesList;
@@ -33,7 +34,21 @@ public class WeaponArchetypes : ScriptableObject
 
     public Material GetMaterialForInfusion(InfusionType infusionType)
     {
-        return infusionMaterials[(int)infusionType];
+        return infusionModuleMaterials[(int)infusionType];
+    }
+
+    public GameObject DeduceProjectileType(Frame f, Barrel b, Clip c, Trigger t)
+    {
+        if (b.moduleIndex == 0 && c.moduleIndex == 0)
+        {
+            return projectilesList[1];
+        }
+        else if (b.moduleIndex == 2 && c.moduleIndex == 4)
+        {
+            return projectilesList[2];
+        }
+
+        return projectilesList[0];
     }
 
     private void OnEnable()
